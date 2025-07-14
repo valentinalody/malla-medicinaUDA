@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Malla Interactiva Medicina</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; text-align: center; }
+    h1 { font-size: 2em; margin-bottom: 10px; }
+    h2 { margin-top: 40px; }
+    .ramo {
+      display: inline-block;
+      background-color: #ddd;
+      padding: 12px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      max-width: 280px;
+    }
+    .aprobado { background-color: #a5d6a7 !important; }
+    .reprobado { background-color: #ef9a9a !important; }
+    .info {
+      font-size: 0.85em;
+      color: #333;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
 
+<h1>Malla Interactiva Medicina</h1>
+<p>(Haz clic en cada ramo para marcarlo como aprobado o reprobado)</p>
+
+<!-- GENERADO: Semestres 1 al 10 -->
+<script>
+  const malla = {
+    1: [
+      ["Anatomía", "Abre: Histología, Neurociencia básica, Fisiología humana 2, Semiología médico quirúrgica"],
+      ["Biología Celular y Molecular", "Abre: Histología, Bioquímica, Fisiología humana 1, Microbiología general e inmunología"],
+      ["Física", "Abre: Fisiología humana 1"],
+      ["Química", "Abre: Bioquímica"],
+      ["Matemáticas para Medicina", "Abre: Metodología de la investigación en salud"],
+      ["Autogestión del Aprendizaje"]
+    ],
+    2: [
+      ["Humanización de la atención en medicina"],
+      ["Fisiología humana 1", "Abre: Fisiología humana 2"],
+      ["Bioquímica", "Abre: Farmacología médica 1"],
+      ["Anatomía", "Abre: Histología, Neurociencia básica, Fisiología humana 2, Semiología médico quirúrgica"],
+      ["Comunicación efectiva en el contexto de salud"],
+      ["Inglés 1", "Abre: Inglés 2, Inglés para medicina 1, Inglés para medicina 2"]
+    ],
+    3: [
+      ["Introducción a la medicina y procedimientos", "Abre: Semiología médico quirúrgica"],
+      ["Bioética", "Abre: Bioética aplicada 1"],
+      ["Fisiología humana 2", "Abre: Fisiopatología 1, Semiología médico quirúrgica, Farmacología médica 1"],
+      ["Histología", "Abre: Integrado médico-quirúrgico"],
+      ["Metodología de la investigación en salud", "Abre: Bioestadística"],
+      ["Inglés 2"]
+    ],
+    4: [
+      ["Bioética aplicada 1", "Abre: Integrado médico-quirúrgico"],
+      ["Psicología médica", "Abre: Psicopatología médica"],
+      ["Fisiopatología 1", "Abre: Fisiopatología 2"],
+      ["Farmacología médica 1", "Abre: Farmacología médica 2"],
+      ["Neurociencia básica", "Abre: Neurociencia clínica y Semiología médico quirúrgica"],
+      ["Microbiología general e inmunología", "Abre: Enfermedades infecciosas"],
+      ["Bioestadística", "Abre: Epidemiología y Medicina Basada en Evidencia"]
+    ],
+    5: [
+      ["Semiología médico quirúrgica", "Abre: Integrado médico-quirúrgico"],
+      ["Psicopatología médica", "Abre: Neurociencia clínica"],
+      ["Fisiopatología 2", "Abre: Integrado médico-quirúrgico"],
+      ["Farmacología médica 2", "Abre: Integrado médico-quirúrgico"],
+      ["Enfermedades infecciosas", "Abre: Medicina preventiva e Integrado médico-quirúrgico"],
+      ["Epidemiología y Medicina Basada en Evidencia", "Abre: Salud pública y gestión"],
+      ["Inglés para medicina 1", "Abre: Inglés para medicina 2"]
+    ],
+    6: [
+      ["Semiología médico quirúrgica", "Abre: Integrado médico-quirúrgico"],
+      ["Electivo 1"],
+      ["Sociología médica"],
+      ["Nutrición y vida sana"],
+      ["Optativo 1"],
+      ["Informática médica"],
+      ["Salud pública y gestión", "Abre: Medicina preventiva"],
+      ["Inglés para medicina 1", "Abre: Inglés para medicina 2"]
+    ],
+    7: [
+      ["Seminario para la investigación en salud"],
+      ["Integrado médico-quirúrgico", "Abre: Traumatología y ortopedia, Atención primaria y medicina familiar, Dermatología, Psiquiatría"],
+      ["Neurociencia clínica"],
+      ["Optativa 2"],
+      ["Inglés para medicina 2"]
+    ],
+    8: [
+      ["Proyecto de investigación en salud 1", "Abre: Proyecto de investigación en salud 2"],
+      ["Integrado médico-quirúrgico"],
+      ["Medicina física y rehabilitación"],
+      ["Electivo 2"],
+      ["Medicina preventiva"]
+    ],
+    9: [
+      ["Proyecto de investigación en salud 2"],
+      ["Traumatología y ortopedia"],
+      ["Pediatría y cirugía infantil"],
+      ["Dermatología"],
+      ["Oftalmología"]
+    ],
+    10: [
+      ["Atención primaria y medicina familiar"],
+      ["Medicina legal y forense"],
+      ["Medicina laboral/toxicología"],
+      ["Integrado de ginecología y obstetricia"],
+      ["Psiquiatría"],
+      ["Otorrinolaringología"]
+    ],
+    11: [
+      ["Internado de cirugía y especialidades quirúrgicas"],
+      ["Internado de medicina"],
+      ["Internado de otorrinolaringología, dermatología y oftalmología"],
+      ["Internado de ginecología y obstetricia"]
+    ],
+    12: [
+      ["Integrado de pediatría"],
+      ["Internado de traumatología"],
+      ["Internado de psiquiatría y salud mental comunitaria"],
+      ["Internado de medicina familiar, comunitaria y rural"],
+      ["Electivo"]
+    ]
+  };
+
+  const container = document.createElement("div");
+  for (let s = 1; s <= 12; s++) {
+    const h2 = document.createElement("h2");
+    h2.textContent = `Semestre ${s <= 10 ? s : s + 0}`;
+    container.appendChild(h2);
+
+    malla[s].forEach(([nombre, info]) => {
+      const ramo = document.createElement("div");
+      ramo.className = "ramo";
+      ramo.textContent = nombre;
+      if (info) {
+        const extra = document.createElement("div");
+        extra.className = "info";
+        extra.textContent = info;
+        ramo.appendChild(extra);
+      }
+      ramo.addEventListener("click", () => {
+        if (ramo.classList.contains("aprobado")) {
+          ramo.classList.remove("aprobado");
+          ramo.classList.add("reprobado");
+        } else if (ramo.classList.contains("reprobado")) {
+          ramo.classList.remove("reprobado");
+        } else {
+          ramo.classList.add("aprobado");
+        }
+      });
+      container.appendChild(ramo);
+    });
+  }
+  document.body.appendChild(container);
+</script>
+
+</body>
+</html>
